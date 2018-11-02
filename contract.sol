@@ -243,7 +243,7 @@ contract MyAdvancedToken is owned, TokenERC20 {
 
     /// @notice Sell `amount` tokens to contract
     /// @param amount amount of tokens to be sold
-    function sell(uint256 amount) public {
+    function sell(uint256 amount) payable public {
         address myAddress = this;
         require(myAddress.balance >= amount * sellPrice);      // checks if the contract has enough ether to buy
         _transfer(msg.sender, this, amount);              // makes the transfers
